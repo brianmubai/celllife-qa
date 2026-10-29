@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "server": "node server/index.js",
     "start": "node server/index.js",
-    "test:email": "node server/test-email.js"
+    "test:email": "node server/test-email.js",
+    "deploy": "node deploy-production.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -27,6 +28,7 @@
     "@types/react-dom": "^19.2.7",
     "@vitejs/plugin-react": "^6.1.1",
     "oxlint": "^1.81.0",
+    "ssh2": "^1.17.0",
     "vite": "^8.3.0"
   }
 }

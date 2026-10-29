@@ -92,6 +92,19 @@ Open `http://localhost:5174` in your browser.
 npm run build
 ```
 
+### 🚀 Deploy to Live Production VPS
+Deploy new builds to the live production server (`cellife.co.zw`) with 1 command:
+```bash
+npm run deploy
+```
+This automated workflow:
+1. Compiles the frontend with Vite (`npm run build`).
+2. Creates compressed bundles (`dist.tar.gz` and `server.tar.gz`).
+3. Connects via SSH/SFTP to the production VPS (`212.90.121.97`).
+4. Atomically unpacks assets and installs remote production dependencies.
+5. Reloads PM2 process `cellife-qa` with zero downtime.
+6. Verifies live response at `https://cellife.co.zw`.
+
 ---
 
 ## 🔐 Security & Hardening Rules
