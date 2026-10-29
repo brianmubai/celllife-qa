@@ -47,6 +47,7 @@ const corsOptions = {
     } catch {
       originHostname = '';
     }
+    const normalizedOrigin = origin.replace(/\/$/, '');
 
     if (
       allowedOrigins.includes(normalizedOrigin) ||
