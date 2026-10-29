@@ -41,9 +41,17 @@ const corsOptions = {
   origin: (origin, callback) => {
     // Allow non-browser requests with no origin (curl, server scripts, automated tests)
     if (!origin) return callback(null, true);
-    const normalizedOrigin = origin.replace(/\/$/, '');
+    let originHostname = '';
+    try {
+      originHostname = new URL(origin).hostname;
+    } catch {
+      originHostname = '';
+    }
+
     if (
       allowedOrigins.includes(normalizedOrigin) ||
+      /\.(onrender\.com|railway\.app|cellife\.co\.zw)$/.test(originHostname) ||
+      originHostname === 'cellife.co.zw' ||
       /^http:\/\/(localhost|127\.0\.0\.1|10\.\d+\.\d+\.\d+|192\.168\.\d+\.\d+)(:\d+)?$/.test(normalizedOrigin)
     ) {
       return callback(null, true);
