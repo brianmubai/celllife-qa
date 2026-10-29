@@ -40,10 +40,12 @@ async function stepBuild() {
   execSync('tar -czf dist.tar.gz -C dist .', { cwd: projectRoot, stdio: 'inherit' });
   console.log(`✅ dist.tar.gz created (${(fs.statSync(distTar).size / 1024).toFixed(1)} KB)`);
 
-  console.log('📦 Packaging server bundle (server.tar.gz)...');
+  const shouldSyncData = process.argv.includes('--sync-data');
+  console.log(`📦 Packaging server bundle (server.tar.gz)... [sync-data: ${shouldSyncData}]`);
   const serverTar = path.join(projectRoot, 'server.tar.gz');
   if (fs.existsSync(serverTar)) fs.unlinkSync(serverTar);
-  execSync('tar -czf server.tar.gz --exclude="node_modules" --exclude="data/store.json" -C server .', {
+  const excludeStore = shouldSyncData ? '' : '--exclude="data/store.json"';
+  execSync(`tar -czf server.tar.gz --exclude="node_modules" ${excludeStore} -C server .`, {
     cwd: projectRoot,
     stdio: 'inherit',
   });

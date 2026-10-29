@@ -11,7 +11,8 @@
     "server": "node server/index.js",
     "start": "node server/index.js",
     "test:email": "node server/test-email.js",
-    "deploy": "node deploy-production.js"
+    "deploy": "node deploy-production.js",
+    "deploy:data": "node deploy-production.js --sync-data"
   },
   "dependencies": {
     "cors": "^2.8.5",
