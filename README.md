@@ -1,5 +1,8 @@
 # qa-app: Live Multi-Speaker Q&A Application
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/brianmubai/celllife-qa)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/deploy?template=https://github.com/brianmubai/celllife-qa)
+
 `qa-app` is a modern real-time Q&A web application designed for multi-speaker training sessions, workshops, and tech conferences. Participants can submit questions to a specific speaker or "any speaker", upvote questions, view live answers on a projector screen, receive answers via email, and browse archived Q&A knowledge bases.
 
 ---
